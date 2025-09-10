@@ -1,0 +1,5 @@
+node_modules
+eslint.config.json
+package.json
+vite.config.json
+index.css
