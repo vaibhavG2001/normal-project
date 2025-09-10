@@ -9,15 +9,21 @@ export default function App() {
     password: ''
   })
 
-
+  let [response, functionResponse] = useState('')
   async function regClick() {
-    try{
-      let send=await axios.post("http://localhost:5000/register",state)
+    try {
+      let send = await axios.post("http://localhost:5000/register", state)
       console.log(send)
+      functionResponse(send.data)
+
+      setTimeout(() => {
+        functionResponse('')
+      }, 1500);
     }
 
-    catch(err){
-      console.log("register Error",err)
+    catch (err) {
+      functionResponse(err.reponse.data)
+      console.log("register Error", err)
     }
   }
 
